@@ -3,14 +3,14 @@ const configuration = {
   SiteName: 'AIDEN',
   Use2DTextOver3D: false, // Change to true if you want 2D over 3D
   SiteNameSize: 0.7, // Between 0 and +
-  NumberOfVerticalLines: 25,
-  NumberOfDots: 5000,
+  NumberOfVerticalLines: 50,
+  NumberOfDots: 9000,
   colors: {
     CanvasBackgroundColor: '#141414',
     LettersColor: '#4400ff',
     LinesColors: ['#FFF', '#4400ff', '#7d7d7d'],
     LowerLinesColors: ['#3d3d3d'],
-    DotsColor: '#7d7d7d'
+    DotsColor: '#000000'
   }
 }
 ///////////////////////////////
