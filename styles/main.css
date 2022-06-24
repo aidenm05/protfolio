@@ -30,7 +30,7 @@
 }
 
 :root {
-  --primaryColor: #FF0000;
+  --primaryColor: #4400ff;
   --primaryBoldColor: #af0202;
   --primaryBlackColor: #9b0101;
   --secondaryColor: #ffffff;
@@ -283,7 +283,7 @@ canvas {
 
 
 /** POPUP SUBSECTIONS START**/
-/* WHAT WE OFFER */
+/* WHAT IOFFER */
 
 .popup__offers {
   display: flex;

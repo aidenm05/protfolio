@@ -429,7 +429,7 @@ var Tween = /** @class */ (function () {
         this._group.add(this);
         this._repeat = this._initialRepeat;
         if (this._reversed) {
-            // If we were reversed (f.e. using the yoyo feature) then we need to
+            // If Iwere reversed (f.e. using the yoyo feature) then Ineed to
             // flip the tween direction back to forward.
             this._reversed = false;
             for (var property in this._valuesStartRepeat) {
@@ -454,7 +454,7 @@ var Tween = /** @class */ (function () {
             var propType = startValueIsArray ? 'array' : typeof startValue;
             var isInterpolationList = !startValueIsArray && Array.isArray(_valuesEnd[property]);
             // If `to()` specifies a property that doesn't exist in the source object,
-            // we should not set that property in the object
+            // Ishould not set that property in the object
             if (propType === 'undefined' || propType === 'function') {
                 continue;
             }
