@@ -6,11 +6,11 @@ const configuration = {
   NumberOfVerticalLines: 50,
   NumberOfDots: 9000,
   colors: {
-    CanvasBackgroundColor: '#ffffff',
-    LettersColor: '#4400ff',
-    LinesColors: ['#FFF', '#4400ff', '#7d7d7d'],
-    LowerLinesColors: ['#3d3d3d'],
-    DotsColor: '#000000'
+    CanvasBackgroundColor: '#1c1026',
+    LettersColor: '#0d2045',
+    LinesColors: ['#C724B1', '#dbf5ff', '#4D4DFF'],
+    LowerLinesColors: ['#00A3E1'],
+    DotsColor: '#59CBE8'
   }
 }
 ///////////////////////////////
