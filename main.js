@@ -1,8 +1,8 @@
 //// Main site configuration. ////
 const configuration = {
-  SiteName: 'AIDEN',
+  SiteName: 'Aiden McManus',
   Use2DTextOver3D: false, // Change to true if you want 2D over 3D
-  SiteNameSize: 0.7, // Between 0 and +
+  SiteNameSize: 0.9, // Between 0 and +
   NumberOfVerticalLines: 50,
   NumberOfDots: 9000,
   colors: {
@@ -125,7 +125,7 @@ function generateRandomObject (verticalPosition, availableSizes, availableColors
 function loadMainLetters () {
   const fontLoader = new THREE.FontLoader()
   fontLoader.load('resources/fonts/Roboto-Black-3d.json', font => {
-    let textGeometry = new THREE.TextGeometry(configuration.SiteName, { font: font, size: 5, height: 3, curveSegments: 3 })
+    let textGeometry = new THREE.TextGeometry(configuration.SiteName, { font: font, size: 5, height: 3, curveSegments: 5 })
     textGeometry.center()
 
     textGeometry.scale(configuration.SiteNameSize, configuration.SiteNameSize, configuration.SiteNameSize)
