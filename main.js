@@ -2,7 +2,7 @@
 const configuration = {
   SiteName: 'Aiden McManus',
   Use2DTextOver3D: false, // Change to true if you want 2D over 3D
-  SiteNameSize: 0.9, // Between 0 and +
+  SiteNameSize: 0.5, // Between 0 and +
   NumberOfVerticalLines: 50,
   NumberOfDots: 9000,
   colors: {
@@ -125,7 +125,7 @@ function generateRandomObject (verticalPosition, availableSizes, availableColors
 function loadMainLetters () {
   const fontLoader = new THREE.FontLoader()
   fontLoader.load('resources/fonts/Roboto-Black-3d.json', font => {
-    let textGeometry = new THREE.TextGeometry(configuration.SiteName, { font: font, size: 5, height: 3, curveSegments: 5 })
+    let textGeometry = new THREE.TextGeometry(configuration.SiteName, { font: font, size: 4, height: 3, curveSegments: 5 })
     textGeometry.center()
 
     textGeometry.scale(configuration.SiteNameSize, configuration.SiteNameSize, configuration.SiteNameSize)
@@ -288,6 +288,7 @@ function loadMain2DLetters () {
   configurationLetters.classList.remove('configuration__letters--hidden')
 }
 
+
 function isMobile () {
   try {
     document.createEvent('touchEvent')
@@ -366,6 +367,6 @@ function mouseMove (e) {
   const CameraYPosition = yCenter - e.clientY
 
   camera.position.x = -CameraXPosition / 100
-  camera.position.y = CameraYPosition / 100
+  camera.position.y = CameraYPosition / 200
   camera.lookAt(scene.position)
 }
