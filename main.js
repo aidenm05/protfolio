@@ -7,7 +7,7 @@ const configuration = {
   NumberOfDots: 9000,
   colors: {
     CanvasBackgroundColor: '#1c1026',
-    LettersColor: '#0d2045',
+    LettersColor: '#4545E6',
     LinesColors: ['#C724B1', '#dbf5ff', '#4D4DFF'],
     LowerLinesColors: ['#00A3E1'],
     DotsColor: '#59CBE8'
