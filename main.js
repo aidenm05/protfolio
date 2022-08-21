@@ -138,7 +138,7 @@ function loadMainLetters () {
       vertexShader: vertexShader(),
       fragmentShader: fragmentShader(),
       side: THREE.DoubleSide,
-      wireframe: true
+      wireframe: false
     })
     mainLettersMesh = new THREE.Mesh(textGeometry, textMaterial)
     scene.add(mainLettersMesh)
