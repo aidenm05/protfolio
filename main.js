@@ -2,7 +2,7 @@
 const configuration = {
   SiteName: 'Aiden McManus',
   Use2DTextOver3D: false, // Change to true if you want 2D over 3D
-  SiteNameSize: 0.5, // Between 0 and +
+  SiteNameSize: 0.7, // Between 0 and +
   NumberOfVerticalLines: 50,
   NumberOfDots: 9000,
   colors: {
@@ -31,7 +31,7 @@ let sceneMovedAmmount = 0
 let timeoutActive = false
 
 const mainGeomertries = []
-let mainLettersMesh = true
+let mainLettersMesh 
 
 let touchStartPosition
 
