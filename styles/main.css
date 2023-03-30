@@ -30,11 +30,11 @@
 }
 
 :root {
-  --primaryColor: #7370ff;
+  --primaryColor: #171747;
   --primaryBoldColor: #b700ff;
   --primaryBlackColor: #330242;
   --secondaryColor: #0099ff;
-  --opaqueBackground: #000000e6;
+  --opaqueBackground: #0000e6;
   --mainCanvasBackground: #10004b;
   --primaryTextSize: 15px;
   --primaryTextSizeS: 10px;
