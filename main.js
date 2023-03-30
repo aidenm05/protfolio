@@ -31,7 +31,7 @@ let sceneMovedAmmount = 0
 let timeoutActive = false
 
 const mainGeomertries = []
-let mainLettersMesh
+let mainLettersMesh = true
 
 let touchStartPosition
 
