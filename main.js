@@ -3,8 +3,8 @@ const configuration = {
   SiteName: 'Aiden McManus',
   Use2DTextOver3D: false, // Change to true if you want 2D over 3D
   SiteNameSize: 0.5, // Between 0 and +
-  NumberOfVerticalLines: 50,
-  NumberOfDots: 9000,
+  NumberOfVerticalLines: 20,
+  NumberOfDots: 900,
   colors: {
     CanvasBackgroundColor: '#1c1026',
     LettersColor: '#4545E6',
