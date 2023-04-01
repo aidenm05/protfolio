@@ -1,16 +1,16 @@
 //// Main site configuration. ////
 const configuration = {
-  SiteName: 'Aiden McManus',
+  SiteName: ' A I D E N ',
   Use2DTextOver3D: false, // Change to true if you want 2D over 3D
-  SiteNameSize: 0.5, // Between 0 and +
-  NumberOfVerticalLines: 20,
-  NumberOfDots: 900,
+  SiteNameSize: 0.7, // Between 0 and +
+  NumberOfVerticalLines: 50,
+  NumberOfDots: 9000,
   colors: {
-    CanvasBackgroundColor: '#1c1026',
-    LettersColor: '#4545E6',
-    LinesColors: ['#C724B1', '#dbf5ff', '#4D4DFF'],
-    LowerLinesColors: ['#00A3E1'],
-    DotsColor: '#59CBE8'
+    CanvasBackgroundColor: '#ffffff',
+    LettersColor: '#4400ff',
+    LinesColors: ['#FFF', '#4400ff', '#7d7d7d'],
+    LowerLinesColors: ['#3d3d3d'],
+    DotsColor: '#000000'
   }
 }
 ///////////////////////////////
@@ -31,7 +31,7 @@ let sceneMovedAmmount = 0
 let timeoutActive = false
 
 const mainGeomertries = []
-let mainLettersMesh 
+let mainLettersMesh
 
 let touchStartPosition
 
@@ -125,23 +125,15 @@ function generateRandomObject (verticalPosition, availableSizes, availableColors
 function loadMainLetters () {
   const fontLoader = new THREE.FontLoader()
   fontLoader.load('resources/fonts/Roboto-Black-3d.json', font => {
-    let textGeometry = new THREE.TextGeometry(configuration.SiteName, { font: font, size: 8, height: 4, curveSegments: 6 })
+    let textGeometry = new THREE.TextGeometry(configuration.SiteName, { font: font, size: 5, height: 3, curveSegments: 3 })
     textGeometry.center()
 
     textGeometry.scale(configuration.SiteNameSize, configuration.SiteNameSize, configuration.SiteNameSize)
-const curve = new THREE.SplineCurve3([
-  new THREE.Vector3(-10, 0, 0),
-  new THREE.Vector3(0, 10, 0),
-  new THREE.Vector3(10, 0, 0)
-]);
 
-const modifier = new THREE.BendModifier();
-modifier.set(curve, 2, configuration.SiteNameSize * 0.5);
-modifier.modify(textGeometry);
     const textMaterial = new THREE.ShaderMaterial({
       uniforms: {
         time: { value: 0 },
-        color: { type: 'vec4', value: new THREE.Color( configuration.colors.LettersColor ) }
+        color: { type: 'vec3', value: new THREE.Color( configuration.colors.LettersColor ) }
       },
       vertexShader: vertexShader(),
       fragmentShader: fragmentShader(),
@@ -162,7 +154,7 @@ modifier.modify(textGeometry);
     }
     
     const bufferGeometry = new THREE.BufferGeometry()
-    bufferGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 4))
+    bufferGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3))
     const pointSprite = new THREE.TextureLoader().load('resources/images/icons/pointImg.png')
     const pointsMaterial = new THREE.PointsMaterial({color: configuration.colors.DotsColor, size: 0.5, map: pointSprite, transparent: true, alphaTest: 0.5})
     const points = new THREE.Points(bufferGeometry, pointsMaterial)
@@ -276,9 +268,7 @@ function vertexShader () {
     float noiseAmp = 0.15; 
     vec3 noisePos = vec3(pos.x * noiseFreq + time, pos.y, pos.z);
     pos.x += snoise(noisePos) * noiseAmp;
-    float bendAmount = 1.2;
-    pos.z += (1.0 - pow(abs(pos.y / (configuration.SiteNameSize * 5.0)), bendAmount)) * -10.0;
-
+  
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.);
   }
   `
@@ -297,7 +287,6 @@ function loadMain2DLetters () {
   const configurationLetters = document.querySelector('.configuration__letters')
   configurationLetters.classList.remove('configuration__letters--hidden')
 }
-
 
 function isMobile () {
   try {
@@ -377,6 +366,6 @@ function mouseMove (e) {
   const CameraYPosition = yCenter - e.clientY
 
   camera.position.x = -CameraXPosition / 100
-  camera.position.y = CameraYPosition / 200
+  camera.position.y = CameraYPosition / 100
   camera.lookAt(scene.position)
 }
