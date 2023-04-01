@@ -15,38 +15,12 @@ const configuration = {
 }
 ///////////////////////////////
 
-// Set camera position and rotation
-camera.position.set(0, 0, 30);
-camera.lookAt(mainLettersMesh.position);
-
-// Define a curved path for the camera movement
-const path = new THREE.CatmullRomCurve3([
-  new THREE.Vector3(0, 0, 30),
-  new THREE.Vector3(10, 10, 0),
-  new THREE.Vector3(-10, 10, 0),
-  new THREE.Vector3(0, 0, 30),
-]);
-
-// Animate the camera along the path
-const cameraPosition = { t: 0 };
-new TWEEN.Tween(cameraPosition)
-  .to({ t: 1 }, 5000)
-  .easing(TWEEN.Easing.Quadratic.InOut)
-  .onUpdate(() => {
-    const position = path.getPoint(cameraPosition.t);
-    const tangent = path.getTangent(cameraPosition.t);
-    camera.position.copy(position);
-    camera.quaternion.setFromUnitVectors(
-      new THREE.Vector3(0, 1, 0),
-      tangent.normalize()
-    );
-  })
-  .start();
 
 // Import all needed dependencies.
 import * as THREE from './ext/three.module.min.js'
 import TWEEN from './ext/tween.js'
 import UI from './ui.js'
+import { BendModifier } from './ext/three-bmfont-text.module.js'
 
 // Initialize UI thread. All UI scripting should be done
 // in this instance.
@@ -152,7 +126,8 @@ function generateRandomObject (verticalPosition, availableSizes, availableColors
 function loadMainLetters () {
   const fontLoader = new THREE.FontLoader()
   fontLoader.load('resources/fonts/Roboto-Black-3d.json', font => {
-    let textGeometry = new THREE.TextGeometry(configuration.SiteName, { font: font, size: 8, height: 3, curveSegments: 6 })
+    let textGeometry = new THREE.TextGeometry(configuration.SiteName, { font: font, size: 8, height
+ 
     textGeometry.center()
 
     textGeometry.scale(configuration.SiteNameSize, configuration.SiteNameSize, configuration.SiteNameSize)
