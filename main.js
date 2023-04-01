@@ -129,15 +129,7 @@ function loadMainLetters () {
     textGeometry.center()
 
     textGeometry.scale(configuration.SiteNameSize, configuration.SiteNameSize, configuration.SiteNameSize)
-const curve = new THREE.SplineCurve3([
-  new THREE.Vector3(-10, 0, 0),
-  new THREE.Vector3(0, 10, 0),
-  new THREE.Vector3(10, 0, 0)
-]);
 
-const modifier = new THREE.BendModifier();
-modifier.set(curve, 2, configuration.SiteNameSize * 0.5);
-modifier.modify(textGeometry);
     const textMaterial = new THREE.ShaderMaterial({
       uniforms: {
         time: { value: 0 },
