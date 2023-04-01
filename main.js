@@ -125,11 +125,19 @@ function generateRandomObject (verticalPosition, availableSizes, availableColors
 function loadMainLetters () {
   const fontLoader = new THREE.FontLoader()
   fontLoader.load('resources/fonts/Roboto-Black-3d.json', font => {
-    let textGeometry = new THREE.TextGeometry(configuration.SiteName, { font: font, size: 4, height: 3, curveSegments: 3 })
+    let textGeometry = new THREE.TextGeometry(configuration.SiteName, { font: font, size: 8, height: 3, curveSegments: 5 })
     textGeometry.center()
 
     textGeometry.scale(configuration.SiteNameSize, configuration.SiteNameSize, configuration.SiteNameSize)
+const curve = new THREE.SplineCurve3([
+  new THREE.Vector3(-10, 0, 0),
+  new THREE.Vector3(0, 10, 0),
+  new THREE.Vector3(10, 0, 0)
+]);
 
+const modifier = new THREE.BendModifier();
+modifier.set(curve, 2, configuration.SiteNameSize * 0.5);
+modifier.modify(textGeometry);
     const textMaterial = new THREE.ShaderMaterial({
       uniforms: {
         time: { value: 0 },
