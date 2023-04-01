@@ -268,7 +268,9 @@ function vertexShader () {
     float noiseAmp = 0.15; 
     vec3 noisePos = vec3(pos.x * noiseFreq + time, pos.y, pos.z);
     pos.x += snoise(noisePos) * noiseAmp;
-  
+    float bendAmount = 1.2;
+    pos.z += (1.0 - pow(abs(pos.y / (configuration.SiteNameSize * 5.0)), bendAmount)) * -10.0;
+
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.);
   }
   `
